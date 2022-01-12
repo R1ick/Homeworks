@@ -110,6 +110,17 @@
                                     <constraint firstItem="NEy-Ho-qaw" firstAttribute="leading" secondItem="Q45-lb-sih" secondAttribute="leading" constant="45" id="uQD-RS-6YP"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4d-1q-mwN">
+                                <rect key="frame" x="65" y="786" width="293" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Finish the animation">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="breakButtonTapped:" destination="qwd-Wd-MgQ" eventType="touchUpInside" id="jZd-dg-v3m"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MTv-46-SJN"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
@@ -123,6 +134,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="breakButton" destination="O4d-1q-mwN" id="xY2-pM-sRX"/>
                         <outlet property="button" destination="crk-L0-9i5" id="58g-un-0GW"/>
                         <outlet property="greenSignal" destination="qam-T4-tsq" id="Pq1-xN-3GK"/>
                         <outlet property="orangeSignal" destination="zzM-Ej-ily" id="D9u-dL-z7J"/>

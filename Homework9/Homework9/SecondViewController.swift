@@ -38,37 +38,65 @@ class SecondViewController: UIViewController {
             button.layer.backgroundColor = UIColor.cyan.cgColor
         }
     }
-   
+    @IBOutlet weak var breakButton: UIButton! {
+        didSet {
+            breakButton.layer.isHidden = true
+            breakButton.layer.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1).cgColor
+            breakButton.tintColor = .white
+        }
+    }
+    
     @IBOutlet weak var superView: UIView! {
         didSet {
             superView.layer.cornerRadius = 20
         }
     }
     
+    enum TraffickLts {
+        case stop
+        case ready
+        case go
+        case readyStop
+    }
+    
     @IBAction func buttonTapped() {
-        button.isEnabled = false
-        UIView.animate(withDuration: 0.3, delay: 1, options: .curveLinear, animations: {
-            self.orangeSignal.layer.opacity = 1
-        }, completion: { _ in
-            UIView.animate(withDuration: 0.3, delay: 2, options: .curveLinear, animations: {
-                self.redSignal.layer.opacity = 0.2
-                self.orangeSignal.layer.opacity = 0.2
-                self.greenSignal.layer.opacity = 1
-            }, completion: { _ in
-                UIView.animate(withDuration: 0.3, delay: 1, options: .curveEaseIn, animations: {
-                    self.greenSignal.layer.opacity = 0.2
-                }, completion: { _ in
+        button.isHidden = true
+        breakButton.isHidden = false
+        breakButton.isEnabled = true
+        turnOn(trafficLight: .stop)
+    }
+    
+    @IBAction func breakButtonTapped(_ sender: UIButton) {
+        button.isHidden = false
+        breakButton.isHidden = true
+        breakButton.isEnabled = false
+    }
+    
+    
+    private func turnOn(trafficLight: TraffickLts) {
+        if breakButton.isEnabled {
+            switch trafficLight {
+            case .stop:
+                UIView.animate(withDuration: 0.3, delay: 1, options: .curveLinear, animations: {
+                    self.orangeSignal.layer.opacity = 0.2
+                    self.redSignal.layer.opacity = 1
+                }, completion: { _ in self.turnOn(trafficLight: .ready) })
+            case .ready:
+                UIView.animate(withDuration: 0.3, delay: 1, options: .curveLinear, animations: {
                     self.orangeSignal.layer.opacity = 1
-                    UIView.animate(withDuration: 0.3, delay: 1, options: .curveLinear) {
-                        self.redSignal.layer.opacity = 1
-                        self.orangeSignal.layer.opacity = 0.2
-                        self.greenSignal.layer.opacity = 0.2
-                        self.button.isEnabled = true
-                    } completion: { _ in
-                        self.buttonTapped()
-                    }
-                })
-            })
-        })
+                }, completion: { _ in self.turnOn(trafficLight: .go) })
+            case .go:
+                UIView.animate(withDuration: 0.3, delay: 1, options: .curveLinear, animations: {
+                    self.redSignal.layer.opacity = 0.2
+                    self.orangeSignal.layer.opacity = 0.2
+                    self.greenSignal.layer.opacity = 1
+                }, completion: { _ in self.turnOn(trafficLight: .readyStop) } )
+            case .readyStop:
+                UIView.animate(withDuration: 0.3, delay: 1, options: .curveLinear, animations: {
+                    self.greenSignal.layer.opacity = 0.2
+                    self.orangeSignal.layer.opacity = 1
+                }, completion: { _ in self.turnOn(trafficLight: .stop) })
+            }
+        }
     }
 }

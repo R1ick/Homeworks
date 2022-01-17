@@ -9,61 +9,48 @@ import UIKit
 
 @IBDesignable class ViewController: UIViewController {
 
+    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var sliderTF: UITextField!
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var setButton: UIButton!
+    @IBOutlet weak var timeLabel: UILabel! {
+        didSet {
+            if switchClear.isOn {
+                timeLabel.backgroundColor = #colorLiteral(red: 0.1897704005, green: 0.6920734048, blue: 0.7802909613, alpha: 1)
+            } else {
+                timeLabel.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            }
+        }
+    }
+    @IBOutlet weak var switchClear: UISwitch!
+    @IBOutlet weak var clearButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+       
+        setupUI()
     }
 
-   
-    @IBOutlet weak var progressView: UIProgressView! {
-        didSet {
-            progressView.progress = 0
-            progressView.progressTintColor = .white
-            progressView.tintColor = .clear
-        }
-    }
-    
-    @IBOutlet weak var sliderTF: UITextField! {
-        didSet {
-            sliderTF.text = "0.0"
-        }
-    }
-    
-    @IBOutlet weak var slider: UISlider! {
-        didSet {
-            slider.value = 0
-        }
-    }
-    
-    @IBOutlet weak var datePicker: UIDatePicker! {
-        didSet {
-            datePicker.datePickerMode = .time
-            datePicker.locale = Locale(identifier: "ru_RU")
-        }
-    }
-    
-    @IBOutlet weak var setButton: UIButton! {
-        didSet {
-            setButton.layer.cornerRadius = 30
-        }
-    }
-    
-    @IBOutlet weak var timeLabel: UILabel!
-    {
-        didSet {
-            timeLabel.layer.cornerRadius = 10
-            timeLabel.layer.masksToBounds = true
-            timeLabel.textAlignment = .center
-        }
-    }
-    
-    @IBOutlet weak var switchClear: UISwitch!
-    
-    @IBOutlet weak var clearButton: UIButton!
-    {
-        didSet {
-            clearButton.layer.cornerRadius = 10
-        }
+    func setupUI() {
+        progressView.progress = 0
+        progressView.progressTintColor = .white
+        progressView.tintColor = .clear
+        
+        sliderTF.text = "0.0"
+        
+        slider.value = 0
+        
+        datePicker.datePickerMode = .time
+        datePicker.locale = Locale(identifier: "ru_RU")
+        
+        setButton.layer.cornerRadius = 30
+        
+        timeLabel.layer.cornerRadius = 10
+        timeLabel.layer.masksToBounds = true
+        timeLabel.textAlignment = .center
+        
+        clearButton.layer.cornerRadius = 10
     }
     
     @IBAction func sliderTracking(_ sender: UISlider) {
@@ -99,6 +86,7 @@ import UIKit
     
     @IBAction func clearTapped(_ sender: Any) {
         switchClear.isOn = false
+        timeLabel.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         timeLabel.text = ""
     }
 }

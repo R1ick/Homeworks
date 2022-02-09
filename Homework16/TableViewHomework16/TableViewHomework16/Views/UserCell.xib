@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="UserCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell1" rowHeight="10" id="zz0-cl-akB" customClass="Cell" customModule="TableViewHomework16" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zz0-cl-akB" id="xmV-Vn-iTx">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="VeP-jL-AG2">
+                        <rect key="frame" x="20" y="10" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="VeP-jL-AG2" secondAttribute="height" multiplier="1:1" id="1J5-yZ-Jfr"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="OQB-TV-GLh">
+                        <rect key="frame" x="125" y="10" width="72" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsr-Hn-hQA">
+                                <rect key="frame" x="0.0" y="0.0" width="47.5" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Surname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ae-AY-rZ5">
+                                <rect key="frame" x="0.0" y="28.5" width="72" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowshape.turn.up.right.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="efa-Xx-crv">
+                        <rect key="frame" x="373" y="40.5" width="21" height="18.5"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="efa-Xx-crv" secondAttribute="height" multiplier="1:1" id="tml-Un-zxW"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="efa-Xx-crv" secondAttribute="trailing" constant="20" id="7Jc-BS-t6Q"/>
+                    <constraint firstItem="OQB-TV-GLh" firstAttribute="top" secondItem="xmV-Vn-iTx" secondAttribute="top" constant="10" id="B0z-8Y-4WL"/>
+                    <constraint firstItem="efa-Xx-crv" firstAttribute="width" secondItem="efa-Xx-crv" secondAttribute="height" multiplier="1:1" id="E1i-Lo-idb"/>
+                    <constraint firstAttribute="bottom" secondItem="VeP-jL-AG2" secondAttribute="bottom" constant="10" id="ERU-O1-Jq0"/>
+                    <constraint firstItem="VeP-jL-AG2" firstAttribute="leading" secondItem="xmV-Vn-iTx" secondAttribute="leading" constant="20" symbolic="YES" id="ZUc-BZ-IwE"/>
+                    <constraint firstItem="efa-Xx-crv" firstAttribute="centerY" secondItem="xmV-Vn-iTx" secondAttribute="centerY" id="hTo-9m-a7z"/>
+                    <constraint firstItem="OQB-TV-GLh" firstAttribute="leading" secondItem="VeP-jL-AG2" secondAttribute="trailing" constant="25" id="hpR-wS-w22"/>
+                    <constraint firstItem="VeP-jL-AG2" firstAttribute="top" secondItem="xmV-Vn-iTx" secondAttribute="top" constant="10" id="zMt-k6-U1T"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="arrowPic" destination="efa-Xx-crv" id="kvh-rr-Doj"/>
+                <outlet property="userName" destination="vsr-Hn-hQA" id="09I-a8-L4C"/>
+                <outlet property="userPic" destination="VeP-jL-AG2" id="qnm-BG-lto"/>
+                <outlet property="userSurname" destination="9Ae-AY-rZ5" id="FkL-Py-ayQ"/>
+            </connections>
+            <point key="canvasLocation" x="147.82608695652175" y="91.071428571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
+        <image name="user" width="256" height="256"/>
+    </resources>
+</document>

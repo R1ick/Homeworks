@@ -109,7 +109,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Left feedback"/>
                                         <connections>
-                                            <segue destination="o4e-F3-eRk" kind="show" identifier="toWriteFeedback" id="8fd-P8-KD6"/>
+                                            <segue destination="o4e-F3-eRk" kind="presentation" identifier="toWriteFeedback" id="8fd-P8-KD6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -177,11 +177,11 @@
             <objects>
                 <viewController id="o4e-F3-eRk" customClass="LeftFeedbackVC" customModule="RestaurantApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MRK-ys-hSp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RyU-D2-sIJ">
-                                <rect key="frame" x="60" y="148" width="294" height="200"/>
+                                <rect key="frame" x="60" y="60" width="294" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="NWA-M9-aSY"/>
@@ -191,7 +191,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uid-FF-fDj">
-                                <rect key="frame" x="60" y="459" width="294" height="31"/>
+                                <rect key="frame" x="60" y="371" width="294" height="31"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -201,13 +201,13 @@
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review must contain at least 20 characters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77X-7O-1ic">
-                                <rect key="frame" x="60" y="350" width="294" height="14.5"/>
+                                <rect key="frame" x="60" y="262" width="294" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JQL-89-PtV">
-                                <rect key="frame" x="60" y="388" width="294" height="32"/>
+                                <rect key="frame" x="60" y="300" width="294" height="32"/>
                                 <segments>
                                     <segment title="⭐️"/>
                                     <segment title="⭐️"/>

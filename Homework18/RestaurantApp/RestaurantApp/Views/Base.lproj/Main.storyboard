@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -191,7 +192,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uid-FF-fDj">
-                                <rect key="frame" x="60" y="371" width="294" height="31"/>
+                                <rect key="frame" x="60" y="628.5" width="294" height="31"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -207,7 +208,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JQL-89-PtV">
-                                <rect key="frame" x="60" y="300" width="294" height="32"/>
+                                <rect key="frame" x="60" y="557.5" width="294" height="32"/>
                                 <segments>
                                     <segment title="⭐️"/>
                                     <segment title="⭐️"/>
@@ -219,26 +220,85 @@
                                     <action selector="chooseRating:" destination="o4e-F3-eRk" eventType="valueChanged" id="TUW-9b-8sa"/>
                                 </connections>
                             </segmentedControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Cdr-DG-ZWB">
+                                <rect key="frame" x="20" y="292.5" width="374" height="161"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="161" id="b5a-k4-Cfg"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ily-Ms-mbG">
+                                    <size key="itemSize" width="129" height="143"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collCell" id="Q4U-MI-3bE" customClass="ImageCell" customModule="RestaurantApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="9" width="129" height="143"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4oI-MY-7va">
+                                            <rect key="frame" x="0.0" y="0.0" width="129" height="143"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.tv" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="axV-ef-ART">
+                                                    <rect key="frame" x="0.0" y="0.5" width="129" height="142"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="143" id="hla-Gn-sLu"/>
+                                                        <constraint firstAttribute="width" secondItem="axV-ef-ART" secondAttribute="height" multiplier="1:1" id="zAf-mP-Sn2"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHq-ax-ziF">
+                                                    <rect key="frame" x="77" y="8" width="44" height="31"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="trash.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="didTapDeleteButton" destination="Q4U-MI-3bE" eventType="touchUpInside" id="udV-BX-4Di"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="JHq-ax-ziF" secondAttribute="trailing" constant="8" id="Bw9-NA-WXs"/>
+                                                <constraint firstItem="JHq-ax-ziF" firstAttribute="top" secondItem="4oI-MY-7va" secondAttribute="top" constant="8" id="ILj-32-t7f"/>
+                                                <constraint firstAttribute="trailing" secondItem="axV-ef-ART" secondAttribute="trailing" id="WBO-gw-GEO"/>
+                                                <constraint firstAttribute="bottom" secondItem="axV-ef-ART" secondAttribute="bottom" id="jna-X2-hTq"/>
+                                                <constraint firstItem="axV-ef-ART" firstAttribute="top" secondItem="4oI-MY-7va" secondAttribute="top" id="kcz-ML-EZI"/>
+                                                <constraint firstItem="axV-ef-ART" firstAttribute="leading" secondItem="4oI-MY-7va" secondAttribute="leading" id="lTd-fU-DFs"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="129" height="143"/>
+                                        <connections>
+                                            <outlet property="deleteButton" destination="JHq-ax-ziF" id="TwX-x9-Pw0"/>
+                                            <outlet property="imageView" destination="axV-ef-ART" id="5fh-Jy-xb9"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jPZ-D0-nFQ"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                         <constraints>
+                            <constraint firstItem="Cdr-DG-ZWB" firstAttribute="leading" secondItem="jPZ-D0-nFQ" secondAttribute="leading" constant="20" id="47X-jm-IuC"/>
                             <constraint firstItem="jPZ-D0-nFQ" firstAttribute="trailing" secondItem="77X-7O-1ic" secondAttribute="trailing" constant="60" id="56I-Tf-PLt"/>
                             <constraint firstItem="uid-FF-fDj" firstAttribute="leading" secondItem="jPZ-D0-nFQ" secondAttribute="leading" constant="60" id="62l-M1-iHX"/>
                             <constraint firstItem="jPZ-D0-nFQ" firstAttribute="trailing" secondItem="RyU-D2-sIJ" secondAttribute="trailing" constant="60" id="9t0-QI-Upc"/>
                             <constraint firstItem="jPZ-D0-nFQ" firstAttribute="trailing" secondItem="uid-FF-fDj" secondAttribute="trailing" constant="60" id="Ap1-NS-EtI"/>
+                            <constraint firstItem="Cdr-DG-ZWB" firstAttribute="centerX" secondItem="MRK-ys-hSp" secondAttribute="centerX" id="HcN-fV-FrB"/>
                             <constraint firstItem="JQL-89-PtV" firstAttribute="leading" secondItem="jPZ-D0-nFQ" secondAttribute="leading" constant="60" id="Kdq-fn-FtN"/>
                             <constraint firstItem="77X-7O-1ic" firstAttribute="top" secondItem="RyU-D2-sIJ" secondAttribute="bottom" constant="2" id="KlT-Hb-FZd"/>
                             <constraint firstItem="77X-7O-1ic" firstAttribute="leading" secondItem="jPZ-D0-nFQ" secondAttribute="leading" constant="60" id="OcE-r4-4Z3"/>
                             <constraint firstItem="uid-FF-fDj" firstAttribute="top" secondItem="JQL-89-PtV" secondAttribute="bottom" constant="40" id="QET-JP-eeS"/>
-                            <constraint firstItem="JQL-89-PtV" firstAttribute="top" secondItem="RyU-D2-sIJ" secondAttribute="bottom" constant="40" id="Thh-8i-TdE"/>
+                            <constraint firstItem="JQL-89-PtV" firstAttribute="top" secondItem="Cdr-DG-ZWB" secondAttribute="bottom" constant="104" id="Thh-8i-TdE"/>
                             <constraint firstItem="RyU-D2-sIJ" firstAttribute="top" secondItem="jPZ-D0-nFQ" secondAttribute="top" constant="60" id="Y04-lZ-0Ue"/>
                             <constraint firstItem="jPZ-D0-nFQ" firstAttribute="trailing" secondItem="JQL-89-PtV" secondAttribute="trailing" constant="60" id="aTf-5r-YXm"/>
+                            <constraint firstItem="jPZ-D0-nFQ" firstAttribute="trailing" secondItem="Cdr-DG-ZWB" secondAttribute="trailing" constant="20" id="e6u-t8-GbF"/>
+                            <constraint firstItem="Cdr-DG-ZWB" firstAttribute="top" secondItem="77X-7O-1ic" secondAttribute="bottom" constant="16" id="iM5-sO-7gh"/>
                             <constraint firstItem="RyU-D2-sIJ" firstAttribute="leading" secondItem="jPZ-D0-nFQ" secondAttribute="leading" constant="60" id="zLp-Ul-ljL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dcb-n0-8dB"/>
                     <connections>
+                        <outlet property="collectionView" destination="Cdr-DG-ZWB" id="pYj-rR-LG8"/>
                         <outlet property="errorLabel" destination="77X-7O-1ic" id="mvS-gu-GY3"/>
                         <outlet property="saveButton" destination="uid-FF-fDj" id="JAa-N2-E39"/>
                         <outlet property="textView" destination="RyU-D2-sIJ" id="650-xS-zNt"/>
@@ -250,6 +310,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="photo.tv" catalog="system" width="128" height="97"/>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

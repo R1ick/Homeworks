@@ -11,16 +11,15 @@ class Cell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
+        [firstPic.layer, secondPic.layer, thirdPic.layer].forEach { $0?.cornerRadius = 10 }
     }
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var reviewLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
-    
+    @IBOutlet weak var firstPic: UIImageView!
+    @IBOutlet weak var secondPic: UIImageView!
+    @IBOutlet weak var thirdPic: UIImageView!
+    @IBOutlet weak var imagesStack: UIStackView!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
 }

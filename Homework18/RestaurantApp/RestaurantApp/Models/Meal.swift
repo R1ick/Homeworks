@@ -38,6 +38,8 @@ struct Feedback {
     let text: String
     let mark: Double
     
+    var images: [UIImage]?
+    
     var currentDate: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.YYYY HH:mm:ss"

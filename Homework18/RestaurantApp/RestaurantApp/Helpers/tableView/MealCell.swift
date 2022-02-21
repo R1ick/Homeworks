@@ -19,7 +19,6 @@ class MealCell: UITableViewCell {
 
     }
     
-   
     @IBOutlet weak var mealImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var mealPrice: UILabel!

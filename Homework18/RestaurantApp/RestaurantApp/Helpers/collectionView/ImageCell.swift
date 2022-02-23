@@ -16,9 +16,9 @@ class ImageCell: UICollectionViewCell {
     }
     
     @IBAction func didTapDeleteButton() {
-        let photo = imageView.image == UIImage(named: "photo.tv")
+        let photo = imageView.image == UIImage(systemName: "photo.tv")
         if !photo {
-            imageView.image = UIImage(named: "photo.tv")
+            imageView.image = UIImage(systemName: "photo.tv")
         }
     }
 }

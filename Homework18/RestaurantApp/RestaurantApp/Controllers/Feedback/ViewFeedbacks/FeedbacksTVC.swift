@@ -42,8 +42,6 @@ extension FeedbacksTVC {
         cell.reviewLabel.text = feedback.text
         cell.ratingLabel.text = feedback.rating
         
-        print(feedback.images?.count)
-        
         switch feedback.images?.count {
         case 0:
             checkImages(at: cell, for: indexPath.row)

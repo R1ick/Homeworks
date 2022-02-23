@@ -39,7 +39,6 @@ extension LeftFeedbackVC: UIImagePickerControllerDelegate {
         let cell = collectionView.cellForItem(at: (collectionView.indexPathsForSelectedItems?.first)!) as! ImageCell
         cell.imageView.image = image
         images?.append(image)
-        print(images)
         dismiss(animated: true)
     }
         

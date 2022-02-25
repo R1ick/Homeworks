@@ -1,0 +1,6 @@
+module Pods_AnimationsApp {
+  umbrella header "Pods-AnimationsApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

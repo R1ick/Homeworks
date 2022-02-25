@@ -6,17 +6,27 @@
 //
 
 import UIKit
+import SideMenuSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+#if DEBUG
+        var arguments = ProcessInfo.processInfo.arguments
+        arguments.removeFirst()
+#endif
+        
+        configureSideMenu()
         return true
     }
-
+    private func configureSideMenu() {
+        SideMenuController.preferences.basic.menuWidth = 240
+        SideMenuController.preferences.basic.defaultCacheKey = "0"
+    }
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

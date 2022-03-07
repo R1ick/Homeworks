@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class ImagesVC: BaseViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -28,13 +28,6 @@ final class ViewController: UIViewController {
     private func startTimer() {
         activityIndicator.startAnimating()
         Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(fetchImage(timer: )), userInfo: .none, repeats: true)
-    }
-    
-    private func showWaring(text: String) {
-        let alert = UIAlertController(title: "Error", message: text, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(ok)
-        self.present(alert, animated: true)
     }
     
     @objc func fetchImage(timer: Timer) {

@@ -31,13 +31,23 @@ class DetailUserVC: UIViewController {
         setupUI()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let dest = segue.destination as? PostsTVC else { return }
-        dest.fetchData(with: URL(string: "\(APIManager.postsPath)?userId=\(index + 1)")!)
-        dest.navigationItem.title = "Posts"
+        if segue.identifier == "toPosts" {
+            guard let dest = segue.destination as? PostsTVC else { return }
+            dest.fetchData(with: URL(string: "\(APIManager.postsPath)?userId=\(index + 1)")!)
+            dest.navigationItem.title = "Posts"
+        } else {
+            guard let dest = segue.destination as? AlbumsTVC else { return }
+            dest.fetchData(with: URL(string: "\(APIManager.albumsPath)?userId=\(index + 1)")!)
+            dest.navigationItem.title = "Albums"
+        }
     }
     
     @IBAction func postsButtonAction() {
         performSegue(withIdentifier: "toPosts", sender: index)
+    }
+    
+    @IBAction func albumsButtonACtion() {
+        performSegue(withIdentifier: "toAlbums", sender: index)
     }
     
     private func setupUI() {

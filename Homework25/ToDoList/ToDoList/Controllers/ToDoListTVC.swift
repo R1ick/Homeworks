@@ -52,11 +52,7 @@ class ToDoListTVC: UITableViewController {
         let taskType = priorities[indexPath.section]
         let currentItem = items[taskType][indexPath.row]
         cell.textLabel?.text = currentItem.title
-        if currentItem.isCompleted {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
+        cell.accessoryType = currentItem.isCompleted ? .checkmark : .none
 
         return cell
     }
